@@ -1,0 +1,2 @@
+
+php_fpm_base_path: "/etc/php/{{ php_fpm_version }}"

@@ -1,0 +1,21 @@
+---
+php_fpm_version: 7.0
+# * pool_name | mandatory
+# * pool_listen | mandatory
+pool_max_children: 20
+pool_start_servers: 3
+
+## Debian:
+pool_user: 'www-data'
+pool_group: 'www-data'
+pool_chdir: '/var/www'
+www_user: 'www-data'
+www_group: 'www-data'
+
+## openSUSE:
+#pool_user: 'wwwrun'
+#pool_group: 'www'
+#pool_chdir: '/srv/www'
+##www_user: 'wwwrun'
+#www_group: 'www'
+

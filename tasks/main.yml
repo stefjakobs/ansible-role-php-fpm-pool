@@ -1,0 +1,19 @@
+# variables
+# * pool_name | mandatory
+# * pool_listen | mandatory
+# * pool_user | default("wwwrun")
+# * pool_group | default("www")
+# * pool_max_children | default(6)
+# * pool_start_servers | default(3)
+# * pool_chdir | default("/srv/www")
+
+---
+- name: add pool config
+  template:
+    src: pool.conf.j2
+    dest: "{{ php_fpm_base_path }}/fpm/pool.d/{{ pool_name | mandatory }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: service php-fpm restart
+
