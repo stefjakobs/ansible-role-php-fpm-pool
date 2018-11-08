@@ -19,3 +19,12 @@ www_group: 'www-data'
 ##www_user: 'wwwrun'
 #www_group: 'www'
 
+php_fpm_pool_disable_functions:
+- 'shell_exec'
+- 'exec'
+- 'proc_open'
+- 'system'
+- 'passthru'
+- 'popen'
+- 'parse_ini_file'
+- 'show_source'

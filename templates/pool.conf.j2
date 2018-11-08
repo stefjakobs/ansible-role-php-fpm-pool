@@ -171,7 +171,7 @@ request_slowlog_timeout = 5s
 ; The log file for slow requests
 ; Default Value: not set
 ; Note: slowlog is mandatory if request_slowlog_timeout is set
-slowlog = /var/log/php5-fpm.$pool.slow.log
+slowlog = /var/log/php-fpm.$pool.slow.log
  
 ; Set open file descriptor rlimit.
 ; Default Value: system defined value
@@ -244,7 +244,7 @@ php_admin_value[error_log]            = /var/log/fpm-php-{{ pool_name | mandator
 php_admin_value[open_basedir]         = '{{ open_basedir | default('') }}/tmp:/var/tmp:/var/lib/php/:/usr/share/php/:/usr/share/php/'
 php_admin_flag[allow_url_fopen]       = Off
 php_admin_flag[allow_url_include]     = Off
-php_admin_value[disable_functions]    = 'shell_exec,exec,proc_open,system,passthru,popen,parse_ini_file,show_source'
+php_admin_value[disable_functions]    = '{{ php_fpm_pool_disable_functions | join(',') }}'
 ;curl_exec,curl_multi_exec,
 php_admin_flag[cgi.force_redirect]    = On
 php_admin_flag[log_errors]            = On
