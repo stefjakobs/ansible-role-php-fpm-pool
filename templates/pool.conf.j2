@@ -248,5 +248,8 @@ php_admin_value[disable_functions]    = '{{ php_fpm_pool_disable_functions | joi
 ;curl_exec,curl_multi_exec,
 php_admin_flag[cgi.force_redirect]    = On
 php_admin_flag[log_errors]            = On
+php_admin_flag[session.cookie_httponly] = On
+php_admin_flag[session.cookie_secure]   = On
 
 security.limit_extensions             = .php
+
